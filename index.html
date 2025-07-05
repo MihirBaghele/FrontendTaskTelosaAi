@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Management - SaaS Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Vertical Sidebar -->
+    <nav class="vertical-sidebar d-flex flex-column align-items-center py-3">
+        <img width="48" height="48" src="https://img.icons8.com/color/48/circled-up--v1.png" alt="circled-up--v1" />
+
+        <button class="sidebar-icon-btn mb-3" title="Home"><i class="fas fa-home"></i></button>
+        <button class="sidebar-icon-btn active mb-3" title="Inbox"><i class="fas fa-inbox"></i></button>
+        <button class="sidebar-icon-btn mb-3" title="Reviews"><i class="fas fa-star"></i></button>
+        <button class="sidebar-icon-btn mb-3" title="Analytics"><i class="fas fa-chart-bar"></i></button>
+        <button class="sidebar-icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+    </nav>
+    <div class="main-container">
+
+        <!-- Breadcrumbs -->
+        <div class=" d-flex align-items-center justify-content-between breadcrumbs px-4 py-2 border-bottom">
+            <div>
+                <button id="sidebarToggleBtn" class="btn btn-link p-0 me-2" style="vertical-align: middle;">
+                    <img width="20" height="20"
+                        src="https://img.icons8.com/ios/50/show-sidepanel.png" alt="show-sidepanel" />
+                </button>
+                <span class="text-muted">Unified Inbox</span> <span class="mx-1">/</span> <span class="fw-bold">Inbox</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-gradient-primary btn-sm rounded-pill px-3 py-2 shadow-sm telosa-btn">
+                    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/5c5396/sparkling--v1.png"
+                        alt="sparkling--v1" /> Telosa AI
+                </button> <i class="far fa-bell"></i>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle"
+                    style="width:32px;height:32px;">
+            </div>
+        </div>
+        <div class="d-flex" style="height:calc(100vh - 92px);">
+            <!-- Left: Review List -->
+            <aside class="review-list-pane border-end"
+                style=" background: #f8f9fa; display: flex; flex-direction: column;">
+                <div class="px-4 pt-3 pb-2">
+                    <h5 class="mb-1">Google</h5>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search" id="searchInput">
+                    </div>
+                </div>
+                <div class="filter-bar px-4 pb-2">
+                    <button class="filter-btn active" data-filter="all">All (20)</button>
+                    <button class="filter-btn" data-filter="unread">Unread (2)</button>
+                    <button class="filter-btn" data-filter="priority">Priority</button>
+                    <button class="filter-btn" data-filter="un-replied">Un-replied (10)</button>
+                </div>
+                <div class="review-list flex-grow-1 overflow-auto" id="reviewList">
+                    <!-- Review list items will be rendered here by JS -->
+                </div>
+            </aside>
+            <!-- Right: Review Detail -->
+            <main class="review-detail-pane flex-grow-1 d-flex flex-column" style="background: #fff;">
+                <div
+                    class="review-detail-header border-bottom px-4 py-3 d-flex align-items-center justify-content-between">
+                    <h6 class="mb-0">Review</h6>
+                    <div class="d-flex align-items-center gap-2">
+                        <span id="detailReviewerName" class="fw-bold"></span>
+                        <img id="detailReviewerAvatar" src="" alt="Avatar" class="rounded-circle"
+                            style="width:32px;height:32px;display:none;">
+                    </div>
+
+
+                </div>
+                <div class="review-detail-content flex-grow-1 px-4 py-3" id="reviewDetail">
+                    <!-- Review detail will be rendered here by JS -->
+                </div>
+                <div class="review-reply-box border-top px-4 py-3 bg-white">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="replyInput" placeholder="Enter your reply here...">
+                        <button class="btn btn-light"> <img width="20" height="20"
+                                src="https://img.icons8.com/ios-filled/50/5c5396/sparkling--v1.png"
+                                alt="sparkling--v1" />
+                        </button>
+                        <button class="btn btn-light"><i class="far fa-smile"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-paperclip"></i></button>
+                        <button class="btn btn-primary" id="sendReplyBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
